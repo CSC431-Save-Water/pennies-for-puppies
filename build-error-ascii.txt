@@ -1,0 +1,43 @@
+[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32m???[39m 4 modules transformed.
+node.exe : [31m???[39m Build failed in 325ms
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31m?? 
+   ?[39m Build failed in 325ms:String) [], RemoteE  
+  xception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[31merror during build:
+[31m[vite:css] [postcss] C:/Repos/CBU/pennies-for-pu
+ppies/src/styles/theme.css:122:1: `@layer base` is 
+used but no matching `@tailwind base` directive is 
+present.[31m
+file: [36mC:/Repos/CBU/pennies-for-puppies/src/style
+s/theme.css:122:0[31m
+    at Input.error (C:\Repos\CBU\pennies-for-puppies\
+node_modules\postcss\lib\input.js:135:16)
+    at AtRule.error (C:\Repos\CBU\pennies-for-puppies
+\node_modules\postcss\lib\node.js:146:32)
+    at normalizeTailwindDirectives (C:\Repos\CBU\penn
+ies-for-puppies\node_modules\tailwindcss\lib\lib\norm
+alizeTailwindDirectives.js:72:32)
+    at C:\Repos\CBU\pennies-for-puppies\node_modules\
+tailwindcss\lib\processTailwindFeatures.js:29:98
+    at plugins (C:\Repos\CBU\pennies-for-puppies\node
+_modules\tailwindcss\lib\plugin.js:38:69)
+    at LazyResult.runOnRoot (C:\Repos\CBU\pennies-for
+-puppies\node_modules\postcss\lib\lazy-result.js:361:
+16)
+    at LazyResult.runAsync (C:\Repos\CBU\pennies-for-
+puppies\node_modules\postcss\lib\lazy-result.js:290:2
+6)
+    at LazyResult.async (C:\Repos\CBU\pennies-for-pup
+pies\node_modules\postcss\lib\lazy-result.js:192:30)
+    at LazyResult.then (C:\Repos\CBU\pennies-for-pupp
+ies\node_modules\postcss\lib\lazy-result.js:436:17)[
+39m
