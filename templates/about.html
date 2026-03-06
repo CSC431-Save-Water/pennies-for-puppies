@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% set active_page = "about" %}
+
+{% block title %}About Us — Pennies for Disabled Puppies{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-rose-50 to-pink-50 py-20">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl mb-6 text-gray-900 font-semibold">Our Mission: Hope for Every Paw</h1>
+      <p class="text-lg md:text-xl text-gray-600">
+        Pennies for Disabled Puppies was founded on the belief that every puppy, regardless of their physical challenges, deserves a chance at a happy, healthy life filled with love.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Story Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl mb-6 text-gray-900 font-semibold">Our Story</h2>
+        <div class="space-y-4 text-gray-600">
+          <p>It all started in 2018 when our founder, Dr. Sarah Martinez, encountered a puppy with severe mobility issues at a rural shelter. Despite the puppy's challenges, its spirit was unbreakable. That moment changed everything.</p>
+          <p>Sarah realized that disabled puppies were often overlooked, with many shelters lacking the resources to provide the specialized care they needed. She knew she had to do something.</p>
+          <p>What began as a small operation in her garage has grown into a nationally recognized organization that has helped over 500 disabled puppies find their forever homes. We've built state-of-the-art facilities, partnered with leading veterinary specialists, and created a community of supporters who believe in our mission.</p>
+          <p>Today, we're proud to be at the forefront of disabled puppy care, developing new rehabilitation techniques and advocating for special needs animals everywhere.</p>
+        </div>
+      </div>
+      <div>
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img
+            src="https://images.unsplash.com/photo-1649609152484-970b013af72a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2ZXRlcmluYXJ5JTIwY2FyZSUyMHB1cHB5fGVufDF8fHx8MTc3MjAzODEzNHww&ixlib=rb-4.1.0&q=80&w=1080"
+            alt="Veterinary care for puppies"
+            class="w-full h-[500px] object-cover"
+            onerror="this.src='https://placehold.co/1080x500/fecdd3/be123c?text=Our+Story'"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 font-semibold">Our Values</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">These core principles guide everything we do</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Compassion -->
+      <div class="bg-white rounded-lg border shadow-sm p-6 text-center">
+        <div class="h-16 w-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-rose-600 fill-rose-600" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg mb-2 text-gray-900 font-semibold">Compassion First</h3>
+        <p class="text-gray-600 text-sm">Every decision we make is guided by what's best for the puppies in our care.</p>
+      </div>
+      <!-- Focused Mission -->
+      <div class="bg-white rounded-lg border shadow-sm p-6 text-center">
+        <div class="h-16 w-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg mb-2 text-gray-900 font-semibold">Focused Mission</h3>
+        <p class="text-gray-600 text-sm">We specialize in disabled puppies, ensuring they get the expert care they deserve.</p>
+      </div>
+      <!-- Community Driven -->
+      <div class="bg-white rounded-lg border shadow-sm p-6 text-center">
+        <div class="h-16 w-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg mb-2 text-gray-900 font-semibold">Community Driven</h3>
+        <p class="text-gray-600 text-sm">Our volunteers, donors, and partners make our work possible every single day.</p>
+      </div>
+      <!-- Excellence -->
+      <div class="bg-white rounded-lg border shadow-sm p-6 text-center">
+        <div class="h-16 w-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+        </div>
+        <h3 class="text-lg mb-2 text-gray-900 font-semibold">Excellence in Care</h3>
+        <p class="text-gray-600 text-sm">We maintain the highest standards of veterinary and rehabilitative care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 font-semibold">Meet Our Team</h2>
+      <p class="text-lg text-gray-600">Dedicated professionals committed to our cause</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Dr. Sarah -->
+      <div class="bg-white rounded-lg border shadow-sm p-6 text-center">
+        <div class="h-24 w-24 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl mb-1 text-gray-900 font-semibold">Dr. Sarah Martinez</h3>
+        <p class="text-rose-600 mb-3">Founder &amp; Veterinarian</p>
+        <p class="text-gray-600 text-sm">With 15 years of veterinary experience, Sarah started this organization after falling in love with special needs puppies.</p>
+      </div>
+      <!-- Michael -->
+      <div class="bg-white rounded-lg border shadow-sm p-6 text-center">
+        <div class="h-24 w-24 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl mb-1 text-gray-900 font-semibold">Michael Chen</h3>
+        <p class="text-rose-600 mb-3">Operations Director</p>
+        <p class="text-gray-600 text-sm">Michael ensures our facilities run smoothly and our puppies receive round-the-clock care.</p>
+      </div>
+      <!-- Emily -->
+      <div class="bg-white rounded-lg border shadow-sm p-6 text-center">
+        <div class="h-24 w-24 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl mb-1 text-gray-900 font-semibold">Emily Rodriguez</h3>
+        <p class="text-rose-600 mb-3">Adoption Coordinator</p>
+        <p class="text-gray-600 text-sm">Emily matches our puppies with perfect families and provides ongoing support to adopters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Section -->
+<section class="py-20 bg-gradient-to-br from-rose-500 to-pink-600 text-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl mb-8 text-center font-semibold">Our Impact by the Numbers</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl mb-2 font-semibold">500+</div>
+          <div class="opacity-90">Puppies Rescued</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl mb-2 font-semibold">450+</div>
+          <div class="opacity-90">Successful Adoptions</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl mb-2 font-semibold">200+</div>
+          <div class="opacity-90">Surgeries Performed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl mb-2 font-semibold">95%</div>
+          <div class="opacity-90">Recovery Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

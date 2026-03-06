@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+{% set active_page = "donate" %}
+
+{% block title %}Donate — Pennies for Disabled Puppies{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-rose-50 to-pink-50 py-16">
+  <div class="container mx-auto px-4 text-center">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-6 text-rose-600 fill-rose-600" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+    </svg>
+    <h1 class="text-4xl md:text-5xl mb-4 text-gray-900 font-semibold">Make a Difference Today</h1>
+    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+      Your generous donation helps us rescue, rehabilitate, and rehome disabled puppies in need. Every penny counts!
+    </p>
+  </div>
+</section>
+
+<!-- Donation Form Section -->
+<section class="py-12 bg-white">
+  <div class="container mx-auto px-4">
+    <div id="toast" class="hidden fixed top-20 right-4 z-50 max-w-sm rounded-lg px-4 py-3 text-white text-sm shadow-lg transition-all"></div>
+
+    <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+      <!-- Main Donation Form -->
+      <div class="md:col-span-2">
+        <div class="bg-white rounded-lg border shadow-sm">
+          <div class="p-6 border-b">
+            <h2 class="text-xl font-semibold text-gray-900">Donation Details</h2>
+          </div>
+          <div class="p-6">
+            <form id="donationForm" class="space-y-6">
+
+              <!-- Donation Type -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-3">Donation Type</label>
+                <div class="flex gap-6">
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="donationType" value="one-time" checked class="accent-rose-600 w-4 h-4" />
+                    <span class="text-sm text-gray-700">One-time</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="radio" name="donationType" value="monthly" class="accent-rose-600 w-4 h-4" />
+                    <span class="text-sm text-gray-700">Monthly</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Donation Amount -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-3">Select Amount</label>
+                <div class="grid grid-cols-3 gap-3 mb-3" id="presetAmounts">
+                  <button type="button" onclick="selectAmount('10')" data-amount="10" class="amount-btn py-3 px-4 rounded-lg border-2 transition-all border-gray-200 hover:border-gray-300 text-sm">$10</button>
+                  <button type="button" onclick="selectAmount('25')" data-amount="25" class="amount-btn py-3 px-4 rounded-lg border-2 transition-all border-rose-500 bg-rose-50 text-rose-700 text-sm">$25</button>
+                  <button type="button" onclick="selectAmount('50')" data-amount="50" class="amount-btn py-3 px-4 rounded-lg border-2 transition-all border-gray-200 hover:border-gray-300 text-sm">$50</button>
+                  <button type="button" onclick="selectAmount('100')" data-amount="100" class="amount-btn py-3 px-4 rounded-lg border-2 transition-all border-gray-200 hover:border-gray-300 text-sm">$100</button>
+                  <button type="button" onclick="selectAmount('250')" data-amount="250" class="amount-btn py-3 px-4 rounded-lg border-2 transition-all border-gray-200 hover:border-gray-300 text-sm">$250</button>
+                  <button type="button" onclick="selectAmount('custom')" data-amount="custom" class="amount-btn py-3 px-4 rounded-lg border-2 transition-all border-gray-200 hover:border-gray-300 text-sm">Custom</button>
+                </div>
+                <div id="customAmountWrapper" class="hidden mt-2">
+                  <label for="customAmount" class="block text-sm font-medium text-gray-700 mb-1">Custom Amount</label>
+                  <div class="relative">
+                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+                    <input id="customAmount" type="number" placeholder="0.00" min="1" step="0.01"
+                      class="w-full border rounded-md pl-7 pr-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Personal Information -->
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                  <input id="firstName" type="text" placeholder="John"
+                    class="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent" />
+                </div>
+                <div>
+                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                  <input id="lastName" type="text" placeholder="Doe"
+                    class="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent" />
+                </div>
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input id="email" type="email" placeholder="john.doe@example.com"
+                  class="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent" />
+              </div>
+
+              <!-- Payment Information -->
+              <div class="pt-4 border-t">
+                <h3 class="text-base font-medium mb-4 flex items-center gap-2 text-gray-900">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  Payment Information
+                </h3>
+                <div class="space-y-4">
+                  <div>
+                    <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                    <input id="cardNumber" type="text" placeholder="1234 5678 9012 3456" maxlength="19"
+                      class="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent" />
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label for="expiry" class="block text-sm font-medium text-gray-700 mb-1">Expiry Date</label>
+                      <input id="expiry" type="text" placeholder="MM/YY" maxlength="5"
+                        class="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent" />
+                    </div>
+                    <div>
+                      <label for="cvv" class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                      <input id="cvv" type="text" placeholder="123" maxlength="4"
+                        class="w-full border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="w-full flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-medium rounded-md px-6 py-3 text-lg transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-white" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                Complete Donation
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="space-y-6">
+        <!-- Security Notice -->
+        <div class="bg-white rounded-lg border shadow-sm p-6">
+          <div class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            <div>
+              <h3 class="text-sm font-medium mb-1 text-gray-900">Secure Donation</h3>
+              <p class="text-xs text-gray-600">Your payment information is encrypted and secure. We never store your card details.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Tax Deductible -->
+        <div class="bg-white rounded-lg border shadow-sm p-6">
+          <div class="flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-rose-600 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <h3 class="text-sm font-medium mb-1 text-gray-900">Tax Deductible</h3>
+              <p class="text-xs text-gray-600">Pennies for Disabled Puppies is a 501(c)(3) organization. Your donation is tax-deductible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl text-center mb-8 text-gray-900 font-semibold">Your Impact</h2>
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg border shadow-sm p-4 flex items-center gap-4">
+          <div class="text-2xl text-rose-600 min-w-[80px] font-semibold">$10</div>
+          <div class="text-gray-600">Provides food and supplies for one puppy for a week</div>
+        </div>
+        <div class="bg-white rounded-lg border shadow-sm p-4 flex items-center gap-4">
+          <div class="text-2xl text-rose-600 min-w-[80px] font-semibold">$25</div>
+          <div class="text-gray-600">Covers basic veterinary checkup and vaccinations</div>
+        </div>
+        <div class="bg-white rounded-lg border shadow-sm p-4 flex items-center gap-4">
+          <div class="text-2xl text-rose-600 min-w-[80px] font-semibold">$50</div>
+          <div class="text-gray-600">Funds rehabilitation equipment and therapy sessions</div>
+        </div>
+        <div class="bg-white rounded-lg border shadow-sm p-4 flex items-center gap-4">
+          <div class="text-2xl text-rose-600 min-w-[80px] font-semibold">$100</div>
+          <div class="text-gray-600">Supports specialized medical treatments</div>
+        </div>
+        <div class="bg-white rounded-lg border shadow-sm p-4 flex items-center gap-4">
+          <div class="text-2xl text-rose-600 min-w-[80px] font-semibold">$250</div>
+          <div class="text-gray-600">Sponsors a life-changing surgery for a disabled puppy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  let selectedAmount = '25';
+
+  function selectAmount(value) {
+    selectedAmount = value;
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+      if (btn.dataset.amount === value) {
+        btn.className = 'amount-btn py-3 px-4 rounded-lg border-2 transition-all border-rose-500 bg-rose-50 text-rose-700 text-sm';
+      } else {
+        btn.className = 'amount-btn py-3 px-4 rounded-lg border-2 transition-all border-gray-200 hover:border-gray-300 text-sm';
+      }
+    });
+    document.getElementById('customAmountWrapper').classList.toggle('hidden', value !== 'custom');
+  }
+
+  function showToast(message, success) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `fixed top-20 right-4 z-50 max-w-sm rounded-lg px-4 py-3 text-white text-sm shadow-lg transition-all ${success ? 'bg-green-600' : 'bg-red-600'}`;
+    toast.classList.remove('hidden');
+    setTimeout(() => toast.classList.add('hidden'), 4000);
+  }
+
+  document.getElementById('donationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const amount = selectedAmount === 'custom'
+      ? document.getElementById('customAmount').value
+      : selectedAmount;
+
+    const payload = {
+      firstName: document.getElementById('firstName').value.trim(),
+      lastName: document.getElementById('lastName').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      cardNumber: document.getElementById('cardNumber').value.trim(),
+      expiry: document.getElementById('expiry').value.trim(),
+      cvv: document.getElementById('cvv').value.trim(),
+      amount: amount,
+      donationType: document.querySelector('input[name="donationType"]:checked').value,
+    };
+
+    try {
+      const res = await fetch('/api/donate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      showToast(data.message, data.success);
+      if (data.success) {
+        e.target.reset();
+        selectAmount('25');
+      }
+    } catch {
+      showToast('Something went wrong. Please try again.', false);
+    }
+  });
+
+  // Format card number with spaces
+  document.getElementById('cardNumber').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').substring(0, 16);
+    this.value = v.replace(/(.{4})/g, '$1 ').trim();
+  });
+
+  // Format expiry
+  document.getElementById('expiry').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g, '').substring(0, 4);
+    if (v.length >= 2) v = v.substring(0, 2) + '/' + v.substring(2);
+    this.value = v;
+  });
+</script>
+{% endblock %}

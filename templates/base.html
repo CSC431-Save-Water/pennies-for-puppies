@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Pennies for Disabled Puppies{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 300: '#fda4af',
+              400: '#fb7185', 500: '#f43f5e', 600: '#e11d48', 700: '#be123c',
+              800: '#9f1239', 900: '#881337',
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    [x-cloak] { display: none !important; }
+    .font-semibold { font-weight: 600; }
+  </style>
+  {% block head %}{% endblock %}
+</head>
+<body class="min-h-screen bg-white">
+
+  <!-- Header -->
+  <header class="border-b bg-white sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <nav class="flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-rose-500 fill-rose-500" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          <span class="text-xl font-semibold text-gray-900">Pennies for Disabled Puppies</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6">
+          <a href="/" class="transition-colors {% if active_page == 'home' %}text-rose-600 font-medium{% else %}text-gray-600 hover:text-gray-900{% endif %}">Home</a>
+          <a href="/about" class="transition-colors {% if active_page == 'about' %}text-rose-600 font-medium{% else %}text-gray-600 hover:text-gray-900{% endif %}">About</a>
+          <a href="/donate" class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-rose-600 text-white hover:bg-rose-700 h-10 px-4 py-2 transition-colors">Donate</a>
+        </div>
+
+        <!-- Mobile nav -->
+        <div class="md:hidden flex items-center gap-3">
+          <a href="/" class="text-sm {% if active_page == 'home' %}text-rose-600{% else %}text-gray-600{% endif %}">Home</a>
+          <a href="/about" class="text-sm {% if active_page == 'about' %}text-rose-600{% else %}text-gray-600{% endif %}">About</a>
+          <a href="/donate" class="inline-flex items-center justify-center rounded-md text-xs font-medium bg-rose-600 text-white hover:bg-rose-700 h-8 px-3 transition-colors">Donate</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 border-t mt-20">
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-rose-500 fill-rose-500" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          <span class="text-gray-600">© 2026 Pennies for Disabled Puppies</span>
+        </div>
+        <p class="text-gray-500 text-sm text-center">
+          A registered 501(c)(3) non-profit organization dedicated to helping disabled puppies live their best lives.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
